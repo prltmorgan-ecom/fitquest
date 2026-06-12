@@ -1,0 +1,13 @@
+{
+  "name": "FitQuest — Monte de niveau IRL",
+  "short_name": "FitQuest",
+  "description": "App sportive gamifiée : XP, niveaux 1 à 200, skins à débloquer, programmes salle / course / street workout.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0b0e14",
+  "theme_color": "#0b0e14",
+  "lang": "fr",
+  "icons": [
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
