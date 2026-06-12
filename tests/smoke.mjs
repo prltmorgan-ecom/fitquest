@@ -1,7 +1,7 @@
 // Test de fumée exécutable avec JavaScriptCore (jsc) — aucun navigateur requis.
 //   /System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc -m tests/smoke.mjs
 // Simule un DOM minimal puis déroule : onboarding → dashboard → programmes →
-// quêtes → profil → séance complète → écran de récompense.
+// quêtes → guide → profil → séance complète → écran de récompense.
 
 let failures = 0;
 const check = (label, cond) => {
@@ -51,12 +51,28 @@ check('XP séance complète cohérente (100-300)', gain >= 100 && gain <= 300);
 check('rang niveau 87 = Diamant', xp.rankForLevel(87).name === 'Diamant');
 check('16 skins, 6 débloqués au niveau 30', xp.SKINS.length === 16 && xp.unlockedSkins(30).length === 6);
 
+// ─── Données ───
 const progs = await import('../js/data/programs.js');
 const exos = await import('../js/data/exercises.js');
 check('14 programmes préconçus', progs.PROGRAMS.length === 14);
 check('3 sports couverts', new Set(progs.PROGRAMS.map(p => p.sport)).size === 3);
 check('chaque programme a des séances remplies', progs.PROGRAMS.every(p => p.days.length > 0 && p.days.every(d => d.items.length > 0)));
-check('70+ exercices en bibliothèque', exos.EXERCISES.length >= 70);
+check('200+ exercices en bibliothèque', exos.EXERCISES.length >= 200);
+check('chaque exercice a niveau + reps conseillées', exos.EXERCISES.every(e => [1, 2, 3].includes(e.lvl) && e.reps && e.cat && e.sport));
+check('pas de doublons de noms d\'exercices', new Set(exos.EXERCISES.map(e => e.name)).size === exos.EXERCISES.length);
+
+// ─── Planificateur hebdo + nutrition ───
+const { buildWeek, calcNutrition } = await import('../js/planner.js');
+const week = buildWeek([0, 1, 2, 3, 4, 5], { street: 4, course: 2 });
+const counts = Object.values(week).reduce((a, s) => { a[s] = (a[s] || 0) + 1; return a; }, {});
+check('semaine 4 street + 2 course bien répartie', counts.street === 4 && counts.course === 2);
+check('jour non coché = pas dans le planning', week[6] === undefined);
+const macros = calcNutrition({ sexe: 'h', age: 20, poids: 70, taille: 178, seances: 6, objectif: 'masse' });
+check('calories prise de masse plausibles (2600-3600)', macros.kcal >= 2600 && macros.kcal <= 3600);
+check('protéines = 1,8 g/kg en masse', macros.proteines === 126);
+const guide = await import('../js/data/guide.js');
+check('9 progressions d\'exercices', guide.PROGRESSIONS.length === 9);
+check('7 principes + 3 plans de repas', guide.TRAINING_TIPS.length === 7 && Object.keys(guide.MEALS).length === 3);
 
 // ─── Parcours complet de l'app ───
 const { state } = await import('../js/store.js');
@@ -65,13 +81,17 @@ await import('../js/app.js');
 const appEl = getEl('#app');
 check('onboarding affiché au premier lancement', appEl.innerHTML.includes('FitQuest') && appEl.innerHTML.includes('pseudo'));
 
-// Création du profil (comme le ferait l'écran d'onboarding)
-state.profile = { name: 'Testeur', sports: ['salle', 'street'], days: [0, 2, 4], createdAt: new Date().toISOString() };
-state.activeProgramId = 'ppl';
+// Création du profil (comme le ferait l'écran d'onboarding) — entraînement tous les jours en salle
+state.profile = {
+  name: 'Testeur', sports: ['salle', 'street'], days: [0, 1, 2, 3, 4, 5, 6],
+  weeklyMix: { salle: 7 }, createdAt: new Date().toISOString(),
+};
+state.activePrograms = { salle: 'ppl' };
 
 const navClick = route => getEl('#navbar').onclick({ target: { closest: () => ({ dataset: { route } }) } });
 navClick('dashboard');
 check('dashboard : header joueur niveau 1', appEl.innerHTML.includes('NIVEAU') && appEl.innerHTML.includes('Testeur'));
+check('dashboard : planning hebdo affiché', appEl.innerHTML.includes('Lun') && appEl.innerHTML.includes('Dim'));
 check('dashboard : séance du jour PPL proposée', appEl.innerHTML.includes('Push'));
 
 navClick('programs');
@@ -80,8 +100,24 @@ check('page programmes : les 14 cartes sont là', appEl.innerHTML.includes('Arno
 navClick('quests');
 check('page quêtes affichée', appEl.innerHTML.includes('Quêtes') && appEl.innerHTML.includes('séances cette semaine'));
 
+navClick('guide');
+check('guide : principes muscu', appEl.innerHTML.includes('surcharge progressive') && appEl.innerHTML.includes('fourchettes de reps'));
+check('guide : progressions affichées', appEl.innerHTML.includes('Muscle-up') && appEl.innerHTML.includes('ÉTAPE'));
+check('guide : formulaire nutrition', appEl.innerHTML.includes('Poids') && appEl.innerHTML.includes('Objectif'));
+
+// Calcul nutrition via le formulaire
+getEl('#nu-sexe').value = 'h'; getEl('#nu-age').value = '20';
+getEl('#nu-poids').value = '70'; getEl('#nu-taille').value = '178';
+getEl('#nu-obj').value = 'masse';
+getEl('#nu-calc').onclick();
+check('nutrition calculée et affichée', state.nutrition?.poids === 70 && appEl.innerHTML.includes('kcal') && appEl.innerHTML.includes('Journée type'));
+
 navClick('profile');
 check('profil : grille de skins avec verrous', appEl.innerHTML.includes('Skins') && appEl.innerHTML.includes('🔒'));
+check('profil : planning résumé + bouton modifier', appEl.innerHTML.includes('Mon planning') && appEl.innerHTML.includes('Modifier'));
+
+navClick('plan');
+check('éditeur de planning affiché', appEl.innerHTML.includes('Répartition des séances'));
 
 // Séance complète : on coche tout puis on termine
 state.session = { programId: 'ppl', dayIndex: 0, checked: [0, 1, 2, 3, 4, 5], startedAt: Date.now() - 45 * 60000 };

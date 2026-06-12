@@ -4,13 +4,15 @@ import { levelFromXp } from './xp.js';
 const KEY = 'fitquest-save-v1';
 
 const defaultState = {
-  profile: null,        // { name, sports: [], days: [], createdAt }
+  profile: null,        // { name, sports: [], days: [], weeklyMix: {sport: n}, createdAt }
   xp: 0,
   skin: 'neon',
   streak: { count: 0, lastDate: null, best: 0 },
   history: [],          // [{ date, programName, dayName, xp, durationMin, exercisesDone }]
   customPrograms: [],   // programmes créés par l'utilisateur
-  activeProgramId: null,
+  activeProgramId: null, // v1 — migré vers activePrograms
+  activePrograms: {},   // un programme actif par sport : { salle: id, course: id, street: id }
+  nutrition: null,      // { sexe, age, poids, taille, objectif }
   session: null,        // séance en cours { programId, dayIndex, checked: [], startedAt }
 };
 

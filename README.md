@@ -11,8 +11,11 @@ App sportive gamifiée : chaque séance d'entraînement te donne de l'**XP**. Tu
   - 🏋️ **Salle** : Full Body Débutant, StrongLifts 5×5, Upper/Lower, Push Pull Legs, PHUL, Arnold Split, Aesthetic V-Taper (le physique le plus esthétique possible)
   - 🏃 **Course** : Couch to 5K, Objectif 10 km, Semi-marathon, Spécial VMA
   - 🤸 **Street workout** : Recommended Routine, Street Power lesté, Skills Calisthénie (muscle-up, front lever, handstand, planche)
-- **Créateur de programme personnalisé** : choisis ton sport, tes séances, tes exercices (bibliothèque de 70+ exercices) et tes formats de séries
-- **Choix de tes jours d'entraînement** dans la semaine
+- **Créateur de programme personnalisé** : choisis ton sport, tes séances, tes exercices (bibliothèque de **213 exercices** avec niveau et reps conseillées) et tes formats de séries
+- **Planning hebdo sur mesure** : choisis tes jours ET la répartition par sport (ex : 4 street + 2 course + 1 repos) — l'app génère ta semaine et te dit quoi faire chaque jour, avec un programme actif par sport
+- **Guide « se muscler vite »** : les 7 règles qui marchent (surcharge progressive, fourchettes de reps force/hypertrophie/endurance, fréquence, récupération…)
+- **Évolutions d'exercices** : 9 progressions étape par étape (pompes → archer → une main, tractions → muscle-up, front lever, planche, handstand, pistol…)
+- **Nutrition** : calcul de tes calories et macros (Mifflin-St Jeor) selon ton objectif (masse / maintien / sèche) + journées de repas types
 - **Streak 🔥** : série de jours consécutifs = bonus d'XP (jusqu'à +50 %)
 - **Quêtes** journalières et hebdomadaires pour de l'XP bonus
 - **Suivi de progression** : historique des séances, stats, temps total d'entraînement
