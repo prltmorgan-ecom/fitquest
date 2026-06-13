@@ -54,9 +54,12 @@ check('16 skins, 6 débloqués au niveau 30', xp.SKINS.length === 16 && xp.unloc
 // ─── Données ───
 const progs = await import('../js/data/programs.js');
 const exos = await import('../js/data/exercises.js');
-check('14 programmes préconçus', progs.PROGRAMS.length === 14);
+check('21 programmes préconçus', progs.PROGRAMS.length === 21);
+check('10 programmes street workout', progs.PROGRAMS.filter(p => p.sport === 'street').length === 10);
 check('3 sports couverts', new Set(progs.PROGRAMS.map(p => p.sport)).size === 3);
 check('chaque programme a des séances remplies', progs.PROGRAMS.every(p => p.days.length > 0 && p.days.every(d => d.items.length > 0)));
+check('séances street complètes (≥4 exos, multi-muscles)', progs.PROGRAMS.filter(p => p.sport === 'street').every(p => p.days.every(d => d.items.length >= 4)));
+check('ids de programmes uniques', new Set(progs.PROGRAMS.map(p => p.id)).size === progs.PROGRAMS.length);
 check('200+ exercices en bibliothèque', exos.EXERCISES.length >= 200);
 check('chaque exercice a niveau + reps conseillées', exos.EXERCISES.every(e => [1, 2, 3].includes(e.lvl) && e.reps && e.cat && e.sport));
 check('pas de doublons de noms d\'exercices', new Set(exos.EXERCISES.map(e => e.name)).size === exos.EXERCISES.length);
