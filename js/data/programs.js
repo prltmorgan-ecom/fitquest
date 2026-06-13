@@ -323,6 +323,46 @@ export const PROGRAMS = [
 
   // ════════════════ STREET WORKOUT ════════════════
   {
+    id: 'road-haut', sport: 'street', difficulty: 'intermédiaire', daysPerWeek: 4,
+    name: '🎯 Road to 18 Tractions, Muscle-up & Handstand', emoji: '🎯',
+    goal: 'TON programme sur-mesure — 100 % haut du corps (les jambes, c\'est ta course). Tu pars de 6 tractions strictes sans dips lestés ; objectif : 18 tractions, le muscle-up, le handstand et toutes les figures, avec le plus de muscle possible. Règle d\'or : à chaque séance, bats la précédente (1 rep, 1 kg, ou 1 progression de plus). Suis ta « Route » dans l\'onglet Guide.',
+    days: [
+      { name: 'Tirage — vers 18 tractions', items: [
+        { n: 'Tractions strictes (vise +1 rep/sem, but 18)', d: '5×max (repos 2-3 min)' },
+        { n: 'Tractions négatives lestées (descente 5 s)', d: '4×4 — franchit les paliers' },
+        { n: 'Tractions lestées (dès que tu fais 3×8 au PdC)', d: '4×5-6' },
+        { n: 'Rowing australien pieds surélevés', d: '4×10-12' },
+        { n: 'Tuck front lever (hold)', d: '5×10-15 s' },
+        { n: 'Curl supination lesté (biceps, masse)', d: '3×10-12' },
+      ]},
+      { name: 'Poussée — dips & handstand', items: [
+        { n: 'Dips (vise 3×12, puis passe au lesté)', d: '5×max (repos 2 min)' },
+        { n: 'Dips lestés (quand 3×12 acquis)', d: '4×5-6' },
+        { n: 'Pike push-up surélevé (vers HSPU)', d: '4×8-12' },
+        { n: 'Handstand dos au mur (tenue)', d: '5×30-45 s' },
+        { n: 'Pompes diamant (triceps, masse)', d: '3×12-15' },
+        { n: 'Élévations latérales élastique (épaules larges)', d: '3×15-20' },
+      ]},
+      { name: 'Skills à froid + bras', items: [
+        { n: 'Échauffement poignets / épaules / coiffe', d: '8 min' },
+        { n: 'Handstand — recherche d\'équilibre libre', d: '10 min d\'essais' },
+        { n: 'Muscle-up — tractions explosives poitrine', d: '5×3-5' },
+        { n: 'Muscle-up — négatives / transition assistée', d: '5×2-3' },
+        { n: 'Front lever (progression à ton niveau)', d: '5×8-12 s' },
+        { n: 'Superset Curl marteau + extension triceps', d: '3×12 + 12' },
+      ]},
+      { name: 'Volume hypertrophie (max muscle)', items: [
+        { n: 'Tractions (au max, technique propre)', d: '4×max' },
+        { n: 'Dips (au max)', d: '4×max' },
+        { n: 'Pompes archer', d: '3×6-8 / côté' },
+        { n: 'Tirage horizontal / rowing australien lent', d: '3×12-15' },
+        { n: 'Pike push-up', d: '3×10-12' },
+        { n: 'Superset Curl + dips serrés (bras pleins)', d: '3×12 + 12' },
+        { n: 'Relevés de jambes suspendu (abdos)', d: '3×12-15' },
+      ]},
+    ],
+  },
+  {
     id: 'start-zero', sport: 'street', difficulty: 'débutant', daysPerWeek: 3,
     name: 'Débutant Zéro (sans matériel)', emoji: '🌱',
     goal: 'Tu pars de zéro, tu ne fais pas encore de traction ? On construit la base complète : tirer, pousser, jambes, gainage. Aucune barre obligatoire.',

@@ -54,8 +54,9 @@ check('16 skins, 6 débloqués au niveau 30', xp.SKINS.length === 16 && xp.unloc
 // ─── Données ───
 const progs = await import('../js/data/programs.js');
 const exos = await import('../js/data/exercises.js');
-check('29 programmes préconçus', progs.PROGRAMS.length === 29);
-check('12 programmes street workout', progs.PROGRAMS.filter(p => p.sport === 'street').length === 12);
+check('30 programmes préconçus', progs.PROGRAMS.length === 30);
+check('13 programmes street workout', progs.PROGRAMS.filter(p => p.sport === 'street').length === 13);
+check('programme Road to (upper body, sur-mesure)', !!progs.PROGRAMS.find(p => p.id === 'road-haut' && p.daysPerWeek === 4));
 check('6 programmes HYROX', progs.PROGRAMS.filter(p => p.sport === 'hyrox').length === 6);
 check('HYROX couvre sans salle + par temps cible', (() => {
   const h = progs.PROGRAMS.filter(p => p.sport === 'hyrox');
@@ -84,6 +85,7 @@ check('protéines = 1,8 g/kg en masse', macros.proteines === 126);
 const guide = await import('../js/data/guide.js');
 check('9 progressions d\'exercices', guide.PROGRESSIONS.length === 9);
 check('7 principes + 3 plans de repas', guide.TRAINING_TIPS.length === 7 && Object.keys(guide.MEALS).length === 3);
+check('roadmap 4 phases, 1 seul "tu es ici", objectif 18 tractions', guide.ROADMAP.length === 4 && guide.ROADMAP.filter(p => p.here).length === 1 && JSON.stringify(guide.ROADMAP).includes('18'));
 
 // ─── Parcours complet de l'app ───
 const { state } = await import('../js/store.js');
@@ -112,6 +114,7 @@ navClick('quests');
 check('page quêtes affichée', appEl.innerHTML.includes('Quêtes') && appEl.innerHTML.includes('séances cette semaine'));
 
 navClick('guide');
+check('guide : roadmap "tu es ici" + objectif 18', appEl.innerHTML.includes('TU ES ICI') && appEl.innerHTML.includes('18 TRACTIONS'));
 check('guide : principes muscu', appEl.innerHTML.includes('surcharge progressive') && appEl.innerHTML.includes('fourchettes de reps'));
 check('guide : progressions affichées', appEl.innerHTML.includes('Muscle-up') && appEl.innerHTML.includes('ÉTAPE'));
 check('guide : formulaire nutrition', appEl.innerHTML.includes('Poids') && appEl.innerHTML.includes('Objectif'));

@@ -4,7 +4,7 @@ import { MAX_LEVEL, levelFromXp, rankForLevel, SKINS, unlockedSkins, workoutXp, 
 import { buildWeek, calcNutrition } from './planner.js';
 import { PROGRAMS, SPORTS } from './data/programs.js';
 import { EXERCISES, CATEGORIES, LVL_LABEL } from './data/exercises.js';
-import { PROGRESSIONS, TRAINING_TIPS, MEALS } from './data/guide.js';
+import { PROGRESSIONS, TRAINING_TIPS, MEALS, ROADMAP } from './data/guide.js';
 
 const $ = sel => document.querySelector(sel);
 const $$ = sel => [...document.querySelectorAll(sel)];
@@ -618,9 +618,22 @@ function renderGuide() {
 
   app.innerHTML = `
     <h1>Guide</h1>
-    <p class="muted mb">Comment se muscler vite, faire évoluer ses exercices, et quoi manger.</p>
+    <p class="muted mb">Ta route vers tes objectifs, comment te muscler vite, faire évoluer tes exercices, et quoi manger.</p>
 
-    <h2>💪 Se muscler rapidement</h2>
+    <h2>🎯 Ta route vers tes objectifs (haut du corps)</h2>
+    <p class="muted mb" style="font-size:13px">De 6 tractions → 18 + muscle-up, handstand et toutes les figures. Valide chaque palier avant de passer à la phase suivante. Programme associé : <b class="accent">🎯 Road to 18 Tractions</b> dans Programmes.</p>
+    ${ROADMAP.map((ph, i) => `
+      <div class="card ${ph.here ? 'glow' : ''}" style="border-left:4px solid ${ph.color}">
+        <div class="row between">
+          <h3 style="color:${ph.color}">Phase ${ph.phase} · ${ph.name}</h3>
+          ${ph.here ? '<span class="rank-pill" style="color:var(--accent)">📍 TU ES ICI</span>' : `<span class="muted" style="font-size:11px">${i < ROADMAP.findIndex(p => p.here) ? '' : '🔒'}</span>`}
+        </div>
+        <p class="muted" style="font-size:12px;margin:2px 0 8px">${ph.sub}</p>
+        ${ph.goals.map(g => `<div style="padding:4px 0;font-size:13px">▸ ${esc(g)}</div>`).join('')}
+        <p class="mt" style="font-size:12.5px;font-weight:600">${esc(ph.milestone)}</p>
+      </div>`).join('')}
+
+    <h2 class="mt">💪 Se muscler rapidement</h2>
     ${TRAINING_TIPS.map(t => `
       <div class="card" style="padding:14px 16px">
         <h3 style="font-size:15px">${t.icon} ${t.title}</h3>

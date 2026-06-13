@@ -75,6 +75,49 @@ export const TRAINING_TIPS = [
   { icon: '⏳', title: 'La régularité bat l\'intensité', body: '3 séances par semaine pendant 1 an battront toujours 6 séances par semaine pendant 2 mois. C\'est exactement le principe des niveaux : l\'XP se gagne séance après séance, pas en un week-end.' },
 ];
 
+// Feuille de route haut du corps : de 6 tractions → 18 + toutes les figures.
+// Chaque phase a ses paliers à valider avant de passer à la suivante.
+export const ROADMAP = [
+  { phase: 1, name: 'Fondation', here: true, color: '#69f0ae',
+    sub: 'Tu es ici : 6 tractions, pas de dips lestés',
+    goals: [
+      'Tractions strictes : 6 → 10',
+      'Dips au poids du corps : atteindre 3×12',
+      'Handstand : tenir 30 s dos au mur',
+      'Tuck front lever : 15 s · Hollow hold : 45 s',
+    ],
+    milestone: '✅ Palier : 10 tractions strictes · 12 dips · 30 s handstand au mur' },
+  { phase: 2, name: 'Force', color: '#ffd54f',
+    sub: 'Quand tu fais 10 tractions propres',
+    goals: [
+      'Tractions lestées : commencer (+5 kg), viser 12+ strictes',
+      'Dips lestés : commencer (+10 kg)',
+      'Muscle-up : négatives + transition assistée',
+      'Handstand : kick-up équilibre libre · HSPU négatives au mur',
+      'Front lever : advanced tuck (dos plat)',
+    ],
+    milestone: '✅ Palier : 1er MUSCLE-UP · 12 tractions · 10 s handstand libre' },
+  { phase: 3, name: 'Skills', color: '#ff8a65',
+    sub: 'Quand le muscle-up est débloqué (13-15 tractions)',
+    goals: [
+      'Tractions : 15 → 18 (lesté lourd + volume)',
+      'Muscle-up : 3-5 reps propres',
+      'HSPU au mur strictes',
+      'Front lever : one leg → straddle',
+      'Planche : tuck → straddle · Human flag : progressions',
+    ],
+    milestone: '🏆 OBJECTIF : 18 TRACTIONS · 3 muscle-ups · HSPU au mur' },
+  { phase: 4, name: 'Maîtrise', color: '#b388ff',
+    sub: 'Objectif atteint — on vise les figures avancées',
+    goals: [
+      'Full front lever · Straddle planche',
+      'Muscle-up lesté · Handstand push-up libre',
+      'Human flag complet',
+      'Maintenir 18+ tractions et continuer à prendre du muscle',
+    ],
+    milestone: '👑 Tu maîtrises toutes les figures du street workout' },
+];
+
 // Journées types selon l'objectif.
 export const MEALS = {
   masse: { title: 'Prise de masse (surplus +300 kcal)', items: [
