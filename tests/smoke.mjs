@@ -54,9 +54,17 @@ check('16 skins, 6 débloqués au niveau 30', xp.SKINS.length === 16 && xp.unloc
 // ─── Données ───
 const progs = await import('../js/data/programs.js');
 const exos = await import('../js/data/exercises.js');
-check('21 programmes préconçus', progs.PROGRAMS.length === 21);
-check('10 programmes street workout', progs.PROGRAMS.filter(p => p.sport === 'street').length === 10);
-check('3 sports couverts', new Set(progs.PROGRAMS.map(p => p.sport)).size === 3);
+check('29 programmes préconçus', progs.PROGRAMS.length === 29);
+check('12 programmes street workout', progs.PROGRAMS.filter(p => p.sport === 'street').length === 12);
+check('6 programmes HYROX', progs.PROGRAMS.filter(p => p.sport === 'hyrox').length === 6);
+check('HYROX couvre sans salle + par temps cible', (() => {
+  const h = progs.PROGRAMS.filter(p => p.sport === 'hyrox');
+  const sansSalle = h.filter(p => /sans salle/i.test(p.name)).length;
+  const temps = h.filter(p => /sub|1h|2h/i.test(p.name.toLowerCase())).length;
+  return sansSalle >= 2 && temps >= 3;
+})());
+check('4 sports couverts (salle, course, street, hyrox)', new Set(progs.PROGRAMS.map(p => p.sport)).size === 4);
+check('chaque séance HYROX a du contenu', progs.PROGRAMS.filter(p => p.sport === 'hyrox').every(p => p.days.every(d => d.items.length >= 3 && d.items.every(it => it.n && it.d))));
 check('chaque programme a des séances remplies', progs.PROGRAMS.every(p => p.days.length > 0 && p.days.every(d => d.items.length > 0)));
 check('séances street complètes (≥4 exos, multi-muscles)', progs.PROGRAMS.filter(p => p.sport === 'street').every(p => p.days.every(d => d.items.length >= 4)));
 check('ids de programmes uniques', new Set(progs.PROGRAMS.map(p => p.id)).size === progs.PROGRAMS.length);

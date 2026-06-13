@@ -13,7 +13,7 @@ const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': 
 
 const WEEKDAYS = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'];
 const DIFF_TAG = { 'débutant': 'deb', 'intermédiaire': 'int', 'avancé': 'adv' };
-const SPORT_EMOJI = { salle: '🏋️', course: '🏃', street: '🤸', repos: '😴' };
+const SPORT_EMOJI = { salle: '🏋️', course: '🏃', street: '🤸', hyrox: '🎽', repos: '😴' };
 const sportName = id => SPORTS.find(s => s.id === id)?.name || id;
 
 // ─── Migration des sauvegardes v1 ───

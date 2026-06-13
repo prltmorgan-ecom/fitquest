@@ -638,10 +638,297 @@ export const PROGRAMS = [
       ]},
     ],
   },
+  {
+    id: 'handstand-road', sport: 'street', difficulty: 'intermédiaire', daysPerWeek: 3,
+    name: 'Route Handstand (0 → équilibre libre)', emoji: '🤸‍♂️',
+    goal: 'Progression structurée pour tenir le poirier en équilibre libre, puis enchaîner les pompes en équilibre (HSPU). Chaque niveau se valide avant de passer au suivant.',
+    days: [
+      { name: 'Équilibre & alignement (skill à froid)', items: [
+        { n: 'Échauffement poignets + épaules', d: '5 min' },
+        { n: 'Poirier groupé contre le mur (ventre au mur)', d: '5×20-40 s' },
+        { n: 'Kick-up vers le mur (montée contrôlée)', d: '5×3-5' },
+        { n: 'Handstand dos au mur (alignement)', d: '5×30-60 s' },
+        { n: 'Recherche d\'équilibre libre (loin du mur)', d: '10 min d\'essais' },
+        { n: 'Hollow body hold', d: '3×30-40 s' },
+      ]},
+      { name: 'Force verticale (épaules/triceps)', items: [
+        { n: 'Pike push-up surélevé', d: '4×8-12' },
+        { n: 'Handstand push-up négatives (au mur)', d: '5×3-5' },
+        { n: 'Wall walk', d: '4×3-5' },
+        { n: 'Pompes diamant', d: '3×10-15' },
+        { n: 'Élévations latérales élastique', d: '3×15-20' },
+      ]},
+      { name: 'Gainage, poignets & core', items: [
+        { n: 'L-sit (progression)', d: '5×10-20 s' },
+        { n: 'Planche', d: '3×45-60 s' },
+        { n: 'Gainage latéral', d: '3×30-45 s / côté' },
+        { n: 'Hollow rocks', d: '3×15-20' },
+        { n: 'Renforcement & mobilité poignets', d: '5 min' },
+      ]},
+    ],
+  },
+  {
+    id: 'street-aesthetic', sport: 'street', difficulty: 'intermédiaire', daysPerWeek: 4,
+    name: 'Aesthetic Street (V-taper & abdos)', emoji: '🗿',
+    goal: 'Le physique le plus esthétique au poids du corps : épaules larges, dos en V, bras pleins et abdos dessinés. Chaque séance garde des mouvements complets, avec un focus esthétique.',
+    days: [
+      { name: 'Largeur (épaules + dos en V)', items: [
+        { n: 'Tractions prise large', d: '4×6-10' },
+        { n: 'Pike push-up surélevé', d: '4×8-12' },
+        { n: 'Tractions pronation lestées', d: '3×6-8' },
+        { n: 'Élévations latérales élastique', d: '4×15-20' },
+        { n: 'Face pull élastique', d: '3×15-20' },
+        { n: 'L-sit', d: '4×10-15 s' },
+      ]},
+      { name: 'Le "show" (pecs + bras)', items: [
+        { n: 'Dips lestés', d: '4×6-10' },
+        { n: 'Pompes archer', d: '3×6-8 / côté' },
+        { n: 'Chin-up prise serrée (biceps)', d: '4×8-10' },
+        { n: 'Pompes diamant (triceps)', d: '3×12-15' },
+        { n: 'Curl supination lesté', d: '3×10-12' },
+        { n: 'Dips serrés (tempo lent)', d: '3×10-12' },
+      ]},
+      { name: 'Abdos V-cut + cardio', items: [
+        { n: 'Relevés de jambes suspendu', d: '4×12-15' },
+        { n: 'Toes to bar (ou genoux)', d: '3×8-12' },
+        { n: 'Dragon flag (progression)', d: '3×6-10' },
+        { n: 'Hollow body hold', d: '3×30-45 s' },
+        { n: 'Gainage latéral', d: '3×30-45 s / côté' },
+        { n: 'Corde à sauter (cardio)', d: '5×1 min' },
+      ]},
+      { name: 'Jambes & fessiers', items: [
+        { n: 'Pistol squat', d: '4×6-8 / jambe' },
+        { n: 'Squat bulgare lesté', d: '4×8-12 / jambe' },
+        { n: 'Nordic curl', d: '3×4-8' },
+        { n: 'Hip thrust une jambe', d: '3×12-15 / jambe' },
+        { n: 'Mollets unilatéral sur marche', d: '4×15-20 / jambe' },
+      ]},
+    ],
+  },
+
+  // ════════════════ HYROX ════════════════
+  {
+    id: 'hyrox-home-deb', sport: 'hyrox', difficulty: 'débutant', daysPerWeek: 4,
+    name: 'HYROX Sans Salle — Découverte', emoji: '🏡',
+    goal: 'Découvrir le format HYROX (8 km de course + 8 stations) sans aucun matériel : alternatives au poids du corps et un simple sac à dos lesté. Objectif : finir, peu importe le temps.',
+    days: [
+      { name: 'Endurance course', items: [
+        { n: 'Footing allure facile', d: '30-40 min, tu peux parler' },
+        { n: 'Lignes droites / progressifs', d: '5×100 m' },
+        { n: 'Gainage', d: '3×45 s' },
+      ]},
+      { name: 'Force fonctionnelle maison', items: [
+        { n: 'Squats au poids du corps (→ wall balls)', d: '4×20' },
+        { n: 'Fentes sac à dos (→ sandbag lunges)', d: '4×20 m' },
+        { n: 'Pompes', d: '4×10-15' },
+        { n: 'Burpees broad jumps (saut en longueur)', d: '4×10' },
+        { n: 'Portage sac à dos lourd (→ farmers carry)', d: '4×40 m' },
+        { n: 'Gainage latéral', d: '3×30 s / côté' },
+      ]},
+      { name: '⭐ Compromised (le secret du HYROX)', items: [
+        { n: 'Bloc à répéter 4-5 fois :', d: '👇' },
+        { n: '· Course', d: '800 m - 1 km' },
+        { n: '· Burpees broad jumps', d: '15' },
+        { n: '· Squats / jump squats', d: '30' },
+        { n: '· Fentes sac à dos', d: '20 m' },
+      ]},
+      { name: 'Mini-simulation maison', items: [
+        { n: '4 tours de : 1 km course + 1 station', d: 'enchaîné, allure régulière' },
+        { n: 'Stations maison au choix', d: 'burpees / squats / fentes / portage' },
+        { n: 'Note ton temps total', d: '🏁 ton 1er repère' },
+        { n: 'Retour au calme + étirements', d: '10 min' },
+      ]},
+    ],
+  },
+  {
+    id: 'hyrox-sub2', sport: 'hyrox', difficulty: 'débutant', daysPerWeek: 4,
+    name: 'HYROX Finisher — Sub 2h00', emoji: '🥉',
+    goal: 'Ta première HYROX en salle, objectif terminer sous 2 h. On apprend les 8 stations officielles et on bâtit l\'endurance pour tenir les 8 km.',
+    days: [
+      { name: 'Course — intervalles', items: [
+        { n: 'Échauffement', d: '10 min footing' },
+        { n: 'Fractionné 400 m', d: '6×400 m à allure cible, récup 90 s' },
+        { n: 'Retour au calme', d: '10 min' },
+      ]},
+      { name: 'Force stations', items: [
+        { n: 'Wall balls (6 kg)', d: '4×20' },
+        { n: 'Sled push (charge légère)', d: '4×15 m' },
+        { n: 'Sled pull', d: '4×15 m' },
+        { n: 'Farmers carry (2×16-20 kg)', d: '4×50 m' },
+        { n: 'Rowing (rameur)', d: '4×250 m' },
+        { n: 'Gainage', d: '3×45 s' },
+      ]},
+      { name: '⭐ Compromised run + station', items: [
+        { n: 'Bloc à répéter 5 fois :', d: '👇' },
+        { n: '· Course', d: '1 km' },
+        { n: '· Station (tourne à chaque bloc)', d: 'wall balls / sled / row / lunges' },
+        { n: 'Récup', d: '2 min entre les blocs' },
+      ]},
+      { name: 'Sortie longue + technique', items: [
+        { n: 'Sortie longue', d: '50-60 min allure facile' },
+        { n: 'SkiErg (ou pompes si absent)', d: '4×250 m' },
+        { n: 'Burpee broad jumps', d: '4×12' },
+        { n: 'Sandbag lunges (10-15 kg)', d: '3×20 m' },
+      ]},
+    ],
+  },
+  {
+    id: 'hyrox-sub130', sport: 'hyrox', difficulty: 'intermédiaire', daysPerWeek: 5,
+    name: 'HYROX — Sub 1h30', emoji: '🥈',
+    goal: 'Le temps de référence "solide" : finir sous 1 h 30. Volume de course plus élevé, charges des stations au niveau course, et beaucoup de travail compromis.',
+    days: [
+      { name: 'Course — seuil', items: [
+        { n: 'Échauffement', d: '15 min' },
+        { n: 'Allure seuil / tempo', d: '3×10 min allure HYROX, récup 2 min' },
+        { n: 'Retour au calme', d: '10 min' },
+      ]},
+      { name: 'Force lourde (sled & carry)', items: [
+        { n: 'Sled push lourd', d: '5×20 m' },
+        { n: 'Sled pull lourd', d: '5×20 m' },
+        { n: 'Farmers carry (2×24 kg)', d: '4×100 m' },
+        { n: 'Squat / goblet squat', d: '4×10-12' },
+        { n: 'Soulevé de terre roumain', d: '3×8-10' },
+      ]},
+      { name: '⭐ Compromised intensif', items: [
+        { n: 'Bloc à répéter 6 fois :', d: '👇' },
+        { n: '· Course', d: '1 km allure cible' },
+        { n: '· Wall balls', d: '50' },
+        { n: '· Burpee broad jumps', d: '15' },
+      ]},
+      { name: 'Course — VMA courte', items: [
+        { n: 'Échauffement', d: '15 min' },
+        { n: 'Fractionné court (30/30)', d: '2×8 (30 s vite / 30 s lent)' },
+        { n: 'Run + row', d: '4× (600 m course + 500 m rameur)' },
+      ]},
+      { name: 'Simulation 4 stations', items: [
+        { n: '4 tours : 1 km + 1 station officielle', d: 'allure course' },
+        { n: 'Ordre : Ski → Sled push → Row → Wall balls', d: 'respecte l\'ordre' },
+        { n: 'Sandbag lunges (20 kg)', d: '3×25 m' },
+        { n: 'Gainage', d: '3×60 s' },
+      ]},
+    ],
+  },
+  {
+    id: 'hyrox-sub115', sport: 'hyrox', difficulty: 'avancé', daysPerWeek: 5,
+    name: 'HYROX — Sub 1h15', emoji: '🥇',
+    goal: 'Le niveau compétitif : sous 1 h 15. Course rapide sous fatigue, stations enchaînées efficacement, transitions travaillées. Pour qui court déjà 5 km en ~22-24 min.',
+    days: [
+      { name: 'Course — VMA longue', items: [
+        { n: 'Échauffement', d: '15-20 min' },
+        { n: 'Fractionné 1000 m', d: '5×1000 m allure 10 km, récup 2 min' },
+        { n: 'Retour au calme', d: '10 min' },
+      ]},
+      { name: 'Force-puissance', items: [
+        { n: 'Sled push max', d: '6×20 m lourd' },
+        { n: 'Soulevé de terre', d: '4×5' },
+        { n: 'Squat', d: '4×6-8' },
+        { n: 'Wall balls (rythme)', d: '5×30 sans poser' },
+        { n: 'Box jumps', d: '4×6' },
+      ]},
+      { name: '⭐ Compromised — race pace', items: [
+        { n: 'Bloc à répéter 6-7 fois :', d: '👇' },
+        { n: '· Course', d: '1 km allure course' },
+        { n: '· Station officielle (tourne)', d: 'poids compétition' },
+        { n: 'Transition rapide', d: '< 15 s' },
+      ]},
+      { name: 'Endurance + SkiErg/Row', items: [
+        { n: 'Sortie longue', d: '60-75 min, dont 20 min allure cible' },
+        { n: 'SkiErg', d: '5×500 m' },
+        { n: 'Rowing intervalles', d: '5×500 m, récup 1 min' },
+        { n: 'Farmers carry (2×24 kg)', d: '4×100 m' },
+      ]},
+      { name: 'Simulation 6 stations', items: [
+        { n: '6 tours : 1 km + station, ordre officiel', d: 'chrono' },
+        { n: 'Burpee broad jumps', d: '80 m' },
+        { n: 'Sandbag lunges', d: '100 m' },
+        { n: 'Gainage anti-fatigue', d: '3×60 s' },
+      ]},
+    ],
+  },
+  {
+    id: 'hyrox-sub100', sport: 'hyrox', difficulty: 'avancé', daysPerWeek: 6,
+    name: 'HYROX Pro — Sub 1h00', emoji: '👑',
+    goal: 'Le Graal élite : sous 1 heure. Double seuil de course, charges Pro, stations sans temps mort. Réservé aux athlètes confirmés courant 5 km sous 20 min.',
+    days: [
+      { name: 'Course — seuil 1', items: [
+        { n: 'Échauffement', d: '20 min' },
+        { n: 'Allure seuil', d: '4×8 min allure 10 km, récup 90 s' },
+        { n: 'Lignes', d: '6×100 m' },
+      ]},
+      { name: 'Force max', items: [
+        { n: 'Sled push Pro (lourd)', d: '6×25 m' },
+        { n: 'Sled pull Pro', d: '6×25 m' },
+        { n: 'Soulevé de terre', d: '5×3-5' },
+        { n: 'Squat', d: '5×5' },
+        { n: 'Farmers carry Pro (2×32 kg)', d: '4×100 m' },
+      ]},
+      { name: '⭐ Compromised — Pro pace', items: [
+        { n: 'Bloc à répéter 8 fois (vraie distance) :', d: '👇' },
+        { n: '· Course', d: '1 km allure Pro' },
+        { n: '· Station officielle dans l\'ordre', d: 'poids Pro, sans poser' },
+      ]},
+      { name: 'Course — VMA', items: [
+        { n: 'Échauffement', d: '20 min' },
+        { n: 'Fractionné 400-800 m', d: '8×400 m ou 5×800 m, récup courte' },
+        { n: 'Rowing', d: '4×500 m sprint' },
+      ]},
+      { name: 'Volume stations', items: [
+        { n: 'Wall balls', d: '4×50 sans poser' },
+        { n: 'Burpee broad jumps', d: '4×20' },
+        { n: 'Sandbag lunges (30 kg)', d: '4×50 m' },
+        { n: 'SkiErg', d: '6×500 m' },
+        { n: 'Gainage lesté', d: '4×60 s' },
+      ]},
+      { name: 'Simulation complète (8 stations)', items: [
+        { n: 'HYROX complète : 8 km + 8 stations, ordre officiel', d: 'chrono cible < 1 h' },
+        { n: 'Ski → Sled push → Sled pull → BBJ', d: '1-4' },
+        { n: 'Row → Farmers → Lunges → Wall balls', d: '5-8' },
+        { n: 'Récup totale ensuite', d: 'repos le lendemain' },
+      ]},
+    ],
+  },
+  {
+    id: 'hyrox-home-inter', sport: 'hyrox', difficulty: 'intermédiaire', daysPerWeek: 5,
+    name: 'HYROX Sans Salle — Confirmé', emoji: '🌳',
+    goal: 'Progresser en HYROX en extérieur / au parc, sans salle : barre de traction, sac à dos lesté, côtes et bancs remplacent sled, rameur et machines. Pour viser ~1 h 30.',
+    days: [
+      { name: 'Course — côtes (→ sled)', items: [
+        { n: 'Échauffement', d: '15 min' },
+        { n: 'Côtes longues (remplace le sled)', d: '6×60-90 s, récup descente' },
+        { n: 'Retour au calme', d: '10 min' },
+      ]},
+      { name: 'Force au parc', items: [
+        { n: 'Squat sac à dos (→ wall balls)', d: '4×20' },
+        { n: 'Tractions + dips', d: '4×8' },
+        { n: 'Fentes sac à dos (→ sandbag)', d: '4×20 m' },
+        { n: 'Portage sac à dos lourd', d: '4×80 m' },
+        { n: 'Burpee broad jumps', d: '4×15' },
+      ]},
+      { name: '⭐ Compromised extérieur', items: [
+        { n: 'Bloc à répéter 6 fois :', d: '👇' },
+        { n: '· Course', d: '1 km' },
+        { n: '· Squats sac à dos', d: '40' },
+        { n: '· Burpees', d: '15' },
+        { n: '· Fentes sac à dos', d: '20 m' },
+      ]},
+      { name: 'Course — tempo', items: [
+        { n: 'Échauffement', d: '15 min' },
+        { n: 'Allure seuil / tempo', d: '2×12 min soutenu, récup 3 min' },
+        { n: 'Lignes droites', d: '6×100 m' },
+      ]},
+      { name: 'Simulation parc (5 stations)', items: [
+        { n: '5 tours : 1 km + 1 station extérieure', d: 'enchaîné, chrono' },
+        { n: 'Stations : côte / squats / portage / fentes / burpees', d: 'tourne' },
+        { n: 'Gainage', d: '3×60 s' },
+        { n: 'Étirements', d: '10 min' },
+      ]},
+    ],
+  },
 ];
 
 export const SPORTS = [
   { id: 'salle', name: 'Salle de muscu', emoji: '🏋️' },
   { id: 'course', name: 'Course à pied', emoji: '🏃' },
   { id: 'street', name: 'Street workout', emoji: '🤸' },
+  { id: 'hyrox', name: 'HYROX', emoji: '🎽' },
 ];
